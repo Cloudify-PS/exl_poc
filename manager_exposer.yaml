@@ -1,0 +1,68 @@
+tosca_definitions_version: cloudify_dsl_1_4
+imports:
+  - https://cloudify.co/spec/cloudify/6.4.0/types.yaml
+  - plugin:cloudify-utilities-plugin
+
+
+blueprint_labels:
+  csys-obj-type:
+    values:
+    - environment
+
+labels:
+  csys-obj-type:
+    values:
+     - environment
+
+
+inputs:
+
+  cloudify_manager_ip:
+    description: >
+      Address of manager.
+    type: string
+    default: 3.220.228.50
+  cloudify_username:
+    description: >
+      Cloudify user name
+    default: admin
+  cloudify_password_secret_name:
+    description: >
+      Cloudify user password secret name
+    type: string
+    default: admin_password
+  cloudify_tenant:
+    description: >
+      Cloudify tenant
+    type: string
+    default: default_tenant
+  cloudify_port:
+    description: >
+      Cloudify manager port
+    type: string
+    default: 80
+  cloudify_protocol:
+    description: >
+      Cloudify manager protocol
+    type: string
+    default: https
+
+node_templates:
+
+  password_secrets_writer:
+    type: cloudify.nodes.Root
+
+capabilities:
+  cloudify_manager_endpoint:
+    value: { get_input: cloudify_manager_ip }
+  cloudify_manager_username:
+    value: { get_input: cloudify_username }
+  cloudify_manager_password_secret:
+    value: { get_input: cloudify_password_secret_name }
+  cloudify_manager_tenant:
+    value: { get_input: cloudify_tenant }
+  cloudify_manager_port:
+    value: { get_input: cloudify_port }
+  cloudify_manager_protocol:
+    value: { get_input: cloudify_protocol }
+
