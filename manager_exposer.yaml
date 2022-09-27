@@ -26,11 +26,6 @@ inputs:
     description: >
       Cloudify user name
     default: admin
-  cloudify_password_secret_name:
-    description: >
-      Cloudify user password secret name
-    type: string
-    default: admin_password
   cloudify_tenant:
     description: >
       Cloudify tenant
@@ -38,14 +33,14 @@ inputs:
     default: default_tenant
   cloudify_port:
     description: >
-      Cloudify manager port
+      Cloudify manager port, 80 for http, 443 for https
     type: string
     default: 80
   cloudify_protocol:
     description: >
       Cloudify manager protocol
     type: string
-    default: https
+    default: http
 
 node_templates:
 
@@ -57,8 +52,6 @@ capabilities:
     value: { get_input: cloudify_manager_ip }
   cloudify_manager_username:
     value: { get_input: cloudify_username }
-  cloudify_manager_password_secret:
-    value: { get_input: cloudify_password_secret_name }
   cloudify_manager_tenant:
     value: { get_input: cloudify_tenant }
   cloudify_manager_port:

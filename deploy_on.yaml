@@ -21,16 +21,19 @@ inputs:
     type: boolean
     description: Trust all
     default: True
+  
+  cloudify_password_secret_name:
+    default: admin_password
    
 node_templates:
   
   matched_environment:
-    type: cloudify.nodes.Component
+    type: cloudify.nodes.Component 
     properties:
       client:
         host: { get_environment_capability: cloudify_manager_endpoint }
         username: { get_environment_capability: cloudify_manager_username }
-        password: { get_secret: { get_environment_capability: cloudify_manager_password_secret } }
+        password: { get_secret: { get_input: cloudify_password_secret_name } }
         tenant: { get_environment_capability: cloudify_manager_tenant }
         port: { get_environment_capability: cloudify_manager_port }
         protocol: { get_environment_capability: cloudify_manager_protocol }
