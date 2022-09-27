@@ -42,10 +42,7 @@ inputs:
     type: string
     default: http
 
-node_templates:
-
-  password_secrets_writer:
-    type: cloudify.nodes.Root
+node_templates: {}
 
 capabilities:
   cloudify_manager_endpoint:
