@@ -17,23 +17,6 @@ labels:
     values:
      - dell-edge
 
-deployment_settings:
-  default_schedules:
-    refresh:
-      workflow: execute_operation
-      since: '+13min'
-      recurrence: '2min'
-      workflow_parameters:
-        operation: cloudify.interfaces.lifecycle.start
-        node_ids: [policy_matcher]
-    refresh_label:
-      workflow: execute_operation
-      since: '+14min'
-      recurrence: '2min'
-      workflow_parameters:
-        operation: cloudify.interfaces.lifecycle.start
-        node_ids: [labeler]
-
 inputs:
 
   k8s_config_secret_name:
