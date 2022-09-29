@@ -21,8 +21,6 @@ A token can be generated via command: cfy token create
 The value of the token must be added to the secrets on Spire. In the next step, deploy manager_exposer_token.yaml with proper inputs like endpoint, tenant, protocol and port.
 
 
-
-
 b) Username and Password based connection
 
 Add the password of the user as a secret on Spire manager. Next, deploy manager_exposer.yaml with proper inputs like user name, endpoint, tenant, protocol and port.
@@ -31,33 +29,17 @@ Add the password of the user as a secret on Spire manager. Next, deploy manager_
 The result of deployment is an environment with all necessary information in Capabilities.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 4. “Deploy on” mechanism.
 
 Depending on connection type (token or user and password) you can deploy the proper blueprint (deploy_on_token.yaml or deploy_on.yaml) with the action “Deploy on” from Bulk action. Below dialog appears. The inputs are visible when the blueprint is selected.
  
 
 Inputs description:
-blueprint_archive        -  url to zip which contains all necessary files, the source must be 				               available from submanager (it is recommended to use public repo)
-blueprint_id                  - name of blueprint with which the file is to be uploaded
-cloudify_secret_token  - name of secret which contains information about token
-main_file_name            - name of blueprint file in zip package
-trust_all	              - is value of CLOUDIFY_SSL_TRUST_ALL (true if certificate is not valid 		                            or for testing purpose)
-
+blueprint_archive        -  url to zip which contains all necessary files, the source must be available from submanager (it is recommended to use public repo)
+blueprint_id             - name of blueprint with which the file is to be uploaded
+cloudify_secret_token    - name of secret which contains information about token
+main_file_name           - name of blueprint file in zip package
+trust_all	               - is value of CLOUDIFY_SSL_TRUST_ALL (true if certificate is not valid or for testing purpose)
 
 
 
