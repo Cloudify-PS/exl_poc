@@ -18,14 +18,14 @@ a) Token-based connection
 
 A token can be generated via command: cfy token create  
 (reference https://docs.cloudify.co/latest/cli/orch_cli/tokens/)
-The value of the token must be added to the secrets on Spire. In the next step, deploy manager_exposer_token.yaml with proper inputs like endpoint, tenant, protocol and port as below.
+The value of the token must be added to the secrets on Spire. In the next step, deploy manager_exposer_token.yaml with proper inputs like endpoint, tenant, protocol and port.
 
 
 
 
 b) Username and Password based connection
 
-Add the password of the user as a secret on Spire manager. Next, deploy manager_exposer.yaml with proper inputs like user name, endpoint, tenant, protocol and port as below.
+Add the password of the user as a secret on Spire manager. Next, deploy manager_exposer.yaml with proper inputs like user name, endpoint, tenant, protocol and port.
  
 
 The result of deployment is an environment with all necessary information in Capabilities.
