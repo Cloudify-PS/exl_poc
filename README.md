@@ -1,4 +1,8 @@
-# exl_poc
+# exl_poc - SPIRE Manager
+
+The spire feature allows to control several managers (*local managers*) from one manager (*Spire*) via deploy-on feature.
+The deploy-on feature allows users to deploy services on the discovered environments.
+The deploy-on feature also provides a means to deploy the same service on multiple environments using a single command. Users can group the environments based on location, tagging and filters.
 
 ## 1. Installation Cloudify Spire Manager
 
