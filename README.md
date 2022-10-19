@@ -111,14 +111,33 @@ Inputs description:
     - *cloudify_secret_token* - name of secret which contains token value
     - *cloudify_password_secret_name* - name of secret which contains password value
 
-## 5. Filter in Environment Tab
+## 5. Verification “Deploy on” mechanism
+In the below examples use uploaded [blueprint](/deploy_on_blueprints/sources/deploy_on_local_blueprint.yaml) with id *blueprint_on_submanager*.
+The used inputs to *"Deploy on"* mechanism:
+- *blueprint_id*=*blueprint_on_submanager* ***Must be uploaded to local!!!***
+- *cloudify_password_secret_name*=*admin_password*
+- *main_file_name*=*blueprint.yaml*
+- *name_of_deployment*=*local_deployment1*
+- *trust_all*=*true*
+- *value_of_hello*=*MyWorld*
+
+Go to the *Services* by clicking on button
+![This is an image7](/images/subservices.png)
+Verify if ***install completed*** tile is visible in *Execution Task Graph*.
+![This is an image8](/images/subservice.png)
+You can also go to the local manager and check if deployment is installed in *Services* tab.
+![This is an image9](/images/submanger_deployment.png)
+***Optional [Only when inputs are exposed in Capabilities] !!!***
+In case of this blueprint, inputs are exposed. You can check the value of capabilities
+![This is an image10](/images/local_capabilities.png)
+## 6. Filter in Environment Tab
 
 Bulk action **"Deploy on"** perform actions on all accesible Environments. If you would like to select only specific *submanager*, you can use [Filters](https://docs.cloudify.co/latest/working_with/console/widgets/filters/).
 You can click **Filter** button (next to _Bulk actions_), after that the dialog appears
 ![This is an image6](/images/filter.png)
 Fill it and click _Apply_
 
-## 6. Resource Config
+## 7. Resource Config
 
 Node **_cloudify.nodes.Component_** allow to create deployment based on blueprint which can be uploaded to target manager (submanager) from 3 types of resources:
 - *public repo* - no additional step - [example here](/deploy_on_blueprints/sources/deploy_on_from_public_repo.yaml)
